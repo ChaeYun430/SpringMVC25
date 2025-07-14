@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 마이바티스 기본코드 -->    
+<mapper namespace="com.test.mapper.BoardMapper">
+
+	<select id="getList" resultType="com.test.domain.BoardVO">
+		<![CDATA[
+			select * from BOARD ORDER BY BNO
+		]]>
+	</select>
+
+	<select id="select" resultType="com.test.domain.BoardVO">
+		<![CDATA[
+			select * from BOARD where BNO = #{BNO}
+		]]>
+	</select>
+	
+	<update id="update">
+		<![CDATA[
+			UPDATE BOARD SET TITLE=#{titleF}, CONTENT=#{contentF}, WRITER=#{writerF},
+			UPDADATE=sysdate where BNO=#{bnoF}
+		]]>	
+	</update>
+	
+</mapper>
